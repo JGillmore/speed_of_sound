@@ -1,0 +1,25 @@
+<html ng-app='app'>
+<head>
+  <meta charset='utf-8'>
+  <title>Discussion Board</title>
+  <style type="text/css">
+    .css-form input.ng-invalid.ng-touched {
+      background-color: #FA787E;
+    }
+
+    .css-form input.ng-valid.ng-touched {
+      background-color: #78FA89;
+    }
+  </style>
+  <script src="angular/angular.js"></script>
+  <script src="angular-route/angular-route.js"></script>
+  <script src="config.js"></script>
+  <script src="factories/user.js"></script>
+  <script src="controllers/login.js"></script>
+  <script src="controllers/home.js"></script>
+</head>
+<body>
+  <div ng-view="">
+  </div>
+</body>
+</html>

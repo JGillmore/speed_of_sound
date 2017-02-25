@@ -1,0 +1,13 @@
+<div ng-if="!loggedIn.name">
+  <form name="form" novalidate class="css-form">
+    <span style="color:red" ng-show="form.firstname.$error.minlength">Short, Sweet, too the point ... but a little to short.</span><br>
+    First Name:<input type=text ng-model=user.name.first name="firstname" minlength="3" maxlength="20" required firstName><br><br>
+    <span style="color:red" ng-show="form.lastname.$error.minlength">Short, Sweet, too the point ... but a little to short.</span><br>
+    Last Name:<input type=text ng-model=user.name.last name="lastname" minlength="3" maxlength="30" required lastName><br><br>
+    <button ng-click=login()>Sign In</button>
+  </form>
+</div>
+<div ng-if="loggedIn.name">
+  Welcome {{loggedIn.name.first}}, You are already logged in. <br>
+  <button ng-click="logOut()">Log Out</button>
+</div>
