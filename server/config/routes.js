@@ -1,4 +1,7 @@
 var UserController = require('../controllers/user');
+var SongController = require('../controllers/song');
+var CommentController = require('../controllers/comment');
+
 module.exports = function(app){
   app.post('/login', function(req,res){
     UserController.login(req,res);
