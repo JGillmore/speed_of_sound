@@ -3,11 +3,12 @@ var UserSchema = require('./user.js');
 var CommentSchema = require('./comment.js');
 
 var SongSchema = mongoose.Schema({
-  song_name: String,
+  title: String,
   pic: String,
   comment: [CommentSchema],
-  user: [UserSchema],
-  genre: String
+  artist: [UserSchema],
+  genre: String,
+  url: String
 },{
   timestamps:true
 });
