@@ -9,7 +9,7 @@ module.exports = function(app){
   app.post('/checkUserName', function(req,res){
     UserController.checkUserName(req,res);
   });
-  app.get('/home', function(req, res){
+  app.get('/', function(req, res){
     SongController.showAll(req,res)
   });
   app.post('/upload', function(req, res){
