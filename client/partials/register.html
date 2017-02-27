@@ -1,0 +1,25 @@
+<div ng-if="!loggedIn.name">
+  <form name="form" novalidate class="css-form">
+    <span ng-show="form.first.$error.minlength" style="color:red">Short, Sweet, too the point ... but a little to short.</span><br>
+    First Name:<input minlength=3 name="first" type=text ng-model=user.name.first required><br><br>
+
+    <span ng-show="form.last.$error.minlength" style="color:red">Short, Sweet, too the point ... but a little to short.</span><br>
+    Last Name:<input type=text minlength=3 name=last ng-model=user.name.last required><br><br>
+
+    <span ng-show="form.username.$error.minlength" style="color:red">Short, Sweet, too the point ... but a little to short.</span><br>
+    User Name:<input name=username minlength=4 type=text ng-model=user.name.user ng-blur="checkUserName()" required><span ng-if="screenName == 'taken'"  style="color:red">Name Taken</span><span ng-if="screenName == 'available'"style="color:green">Name Available</span><br><br>
+
+    <span ng-show="form.email.$error.email" style="color:red">Please enter a valid email.</span><br>
+    Email:<input name=email type=email ng-model=user.email required><br><br>
+
+    Password:<input type=password ng-model=user.password required><br>
+    <span ng-if="user.password != password" style="color:red">Passwords do not match</span><br>
+    Confirm Password:<input name=password type=password ng-model=password required><br><br>
+    <button ng-disabled="form.$invalid || (user.password != password)" ng-click=Register()>Register</button>
+  </form>
+</div>
+
+<div ng-if="loggedIn.name">
+  Welcome {{loggedIn.name.first}}, You are already logged in. <br>
+  <button ng-click="logOut()">Log Out</button>
+</div>

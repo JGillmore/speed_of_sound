@@ -1,4 +1,4 @@
-app.controller('HomeController', function (UserFactory, $scope){
+app.controller('IndexController', function (UserFactory, $scope){
   $scope.user = {};
   function gotLoggedIn(loggedIn){
     $scope.loggedIn = loggedIn;

@@ -1,12 +1,12 @@
 <div ng-if="!loggedIn.name">
-  <form name="form" novalidate class="css-form">
-    <span style="color:red" ng-show="form.firstname.$error.minlength">Short, Sweet, too the point ... but a little to short.</span><br>
-    First Name:<input type=text ng-model=user.name.first name="firstname" minlength="3" maxlength="20" required firstName><br><br>
-    <span style="color:red" ng-show="form.lastname.$error.minlength">Short, Sweet, too the point ... but a little to short.</span><br>
-    Last Name:<input type=text ng-model=user.name.last name="lastname" minlength="3" maxlength="30" required lastName><br><br>
-    <button ng-click=login()>Sign In</button>
+  <form name="form">
+    User Name:<input name=username type=text ng-model=user.name.user ng-blur="checkUserName()" required><span ng-if="screenName == 'available'"style="color:red">User Name does not exist</span><br><br>
+
+    Password:<input type=password ng-model=user.password required><br>
+    <button ng-disabled="screenName == 'available' || form.$invalid" ng-click=logIn()>Log In</button><a href="#!/register">or Register</a>
   </form>
 </div>
+
 <div ng-if="loggedIn.name">
   Welcome {{loggedIn.name.first}}, You are already logged in. <br>
   <button ng-click="logOut()">Log Out</button>
