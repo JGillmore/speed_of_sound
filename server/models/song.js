@@ -5,8 +5,8 @@ var CommentSchema = require('./comment.js');
 var SongSchema = mongoose.Schema({
   title: String,
   pic: String,
-  comment: [CommentSchema],
-  artist: [UserSchema],
+  comments: [CommentSchema],
+  artist: String,
   genre: String,
   url: String
 },{
