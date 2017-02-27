@@ -15,7 +15,7 @@
     Password:<input type=password ng-model=user.password required><br>
     <span ng-if="user.password != password" style="color:red">Passwords do not match</span><br>
     Confirm Password:<input name=password type=password ng-model=password required><br><br>
-    <button ng-disabled="form.$invalid || (user.password != password)" ng-click=Register()>Register</button>
+    <button ng-disabled="form.$invalid || (user.password != password)" ng-click=register()>Register</button>
   </form>
 </div>
 

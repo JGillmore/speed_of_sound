@@ -7,14 +7,14 @@ app.controller('LoginController', function (UserFactory, $scope){
   UserFactory.getLoggedIn(gotLoggedIn)
 
   $scope.register = function(){
-    userFactory.register($scope.user,gotLoggedIn)
+    UserFactory.register($scope.user,gotLoggedIn)
   }
   $scope.checkUserName = function(){
     UserFactory.checkUserName($scope.user.name.user, function(userNameIs){
       $scope.screenName = userNameIs;
     })
   }
-  $scope.login = function(){
+  $scope.logIn = function(){
     UserFactory.login($scope.user, gotLoggedIn)
   }
   $scope.logOut = function(){
