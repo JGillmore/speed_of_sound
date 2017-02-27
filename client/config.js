@@ -7,7 +7,7 @@ app.config(function ($routeProvider) {
     }).when("/register", {
         templateUrl: "partials/register.html",
         controller: "LoginController"
-    }).otherwise("/", {
+    }).otherwise({
         templateUrl: "partials/index.html",
         controller: "IndexController"
     })
