@@ -1,4 +1,4 @@
-app.controller('IndexController', function (UserFactory, $scope){
+app.controller('IndexController', function (UserFactory, SongFactory, $scope){
   $scope.user = {};
   function gotLoggedIn(loggedIn){
     $scope.loggedIn = loggedIn;
@@ -10,4 +10,7 @@ app.controller('IndexController', function (UserFactory, $scope){
     UserFactory.logOut();
     $scope.loggedIn = {};
   }
+  SongFactory.showAll(function(songs){
+    $scope.songs = songs;
+  })
 });

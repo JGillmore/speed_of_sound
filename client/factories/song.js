@@ -7,6 +7,12 @@ app.factory("SongFactory", function ($http, $location) {
        callback(data);
      })
    }
+   factory.showAll = function(callback){
+     $http.get('/songs').then(function(data){
+       songs = data.data;
+       callback(songs);
+     })
+   }
    return factory;
 
 });
