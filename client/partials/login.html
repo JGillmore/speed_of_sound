@@ -1,13 +1,23 @@
-<div ng-if="!loggedIn.name">
-  <form name="form">
-    User Name:<input name=username type=text ng-model=user.name.user ng-blur="checkUserName()" required><span ng-if="screenName == 'available'"style="color:red">User Name does not exist</span><br><br>
-
-    Password:<input type=password ng-model=user.password required><br>
-    <button ng-disabled="screenName == 'available' || form.$invalid" ng-click=logIn()>Log In</button><a href="#!/register">or Register</a>
-  </form>
-</div>
-
-<div ng-if="loggedIn.name">
-  Welcome {{loggedIn.name.first}}, You are already logged in. <br>
-  <button ng-click="logOut()">Log Out</button>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="static/login_reg.css" rel="stylesheet">
+    </head>
+    <body>
+      <div class='container'ng-if="!loggedIn.name">
+        <form class='form-signin' name="form">
+          <h2 class="form-signin-heading">Speed of Sound!</h2>
+            <div class="inner-addon left-addon">
+            <i class="glyphicon glyphicon-remove"></i>
+          <label for="inputUserName" class="sr-only">User Name</label>
+          <input class="form-control" placeholder="User Name" required autofocus name=username type=text id='inputUserName'ng-model=user.name.user ng-blur="checkUserName()" required><span class="glyphicon glyphicon-remove"ng-if="screenName == 'available'"style="color:red"></span><br>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type=password ng-model=user.password id="inputPassword" class="form-control" placeholder="Password" required><br>
+          <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="screenName == 'available' || form.$invalid" ng-click=logIn()>Log In</button><a href="#!/register"><h4>Register</h4></a>
+          </div>
+        </form>
+      </div>
+    </body>

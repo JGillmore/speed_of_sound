@@ -1,10 +1,11 @@
 app.controller('SongController', ['$scope', function ($scope) {
         $scope.songs = [
             {
-                id: 'one',
-                title: 'Rain',
+                id: '1243134',
+                title: 'Test',
                 artist: 'Drake',
-                url: 'http://www.schillmania.com/projects/soundmanager2/demo/_mp3/rain.mp3'
+                genre: 'something to test',
+                url: 'audio/6dbb5bd9deda3efa2bd961958f5f0900.mp3'
             },
             {
                 id: 'two',
