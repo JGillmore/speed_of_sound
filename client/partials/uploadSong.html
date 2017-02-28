@@ -1,5 +1,44 @@
-<form ng-app="app" ng-controller="UploadController" name="form">
-  Title: <input type=text ng-model=song.title><br><br>
-  <button ngf-select ng-model="file" name='file' ngf-pattern="'audio/*'" ngf-accept="'audio/*'">Choose File...</button>{{file.name}}<br>
-  <button type="submit" ng-click="upload()">submit</button>
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/style.css"/>
+  </head>
+  <body>
+    <div class="container">
+  <h2>Upload song with a Speed of Light!</h2><h3>
+    <form ng-app="app" ng-controller="UploadController" name="form">
+      Title: <input type=text ng-model=song.title><br><br>
+      <button ngf-select ng-model="file" name='file' ngf-pattern="'audio/*'" ngf-accept="'audio/*'">Choose File...</button>{{file.name}}<br>
+      <button type="submit" ng-click="upload()">submit</button>
+    </form>
+
+     <div class="row">
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+  <a href="https://soundcloud.com/le-n-ko/discosto" class="sc-player"></a>
+</div>
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+  <a href="https://soundcloud.com/le-n-ko/bossed-vareq-rendered" class="sc-player"></a>
+</div>
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+  <a href="https://soundcloud.com/le-n-ko/gingin1" class="sc-player"></a>
+</div>
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+  <a href="https://soundcloud.com/le-n-ko/102-102a" class="sc-player"></a>
+</div>
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+  <a href="https://soundcloud.com/le-n-ko/nappe-a-classer" class="sc-player"></a>
+</div>
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+  <a href="https://soundcloud.com/le-n-ko/cordeler" class="sc-player"></a>
+</div>
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+  <a href="https://soundcloud.com/le-n-ko/hw2l-mixtape-le-nko-dj-evok" class="sc-player"></a>
+</div>
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+  <a href="https://soundcloud.com/le-n-ko/yung-simmie-be-cool-nko-mod" class="sc-player"></a>
+</div>
+</div>
+</div>
+</body>

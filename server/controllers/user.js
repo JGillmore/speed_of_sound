@@ -3,8 +3,13 @@ var User = mongoose.model('User')
 
 module.exports = {
   login: function(req,res){
-    User.findOne({'name.user':req.body.name.user, 'password':req.body.password}, function(err, user){
-      res.json(user);
+    var user = req.body;
+    User.findOne({'name.user':req.body.name.user, 'password':req.body.password}, function(err, loggedIn){
+      if(loggedIn){
+        res.json(loggedIn);
+      }else{
+        res.json(err);
+      }
     })
   },
   register: function(req,res){

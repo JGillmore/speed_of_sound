@@ -12,3 +12,137 @@
 li {
 	cursor: pointer;
 }
+
+$font-title: "Lato";
+$font-text: "Lato";
+
+body,
+html{
+	min-height: 100%;
+	min-width: 100%;
+}
+body{
+	background: #4CA1AF; /* fallback for old browsers */
+	background: linear-gradient(0deg, hsla(0,100%,60%,.5), hsla(90,100%,60%,.0))  no-repeat border-box, linear-gradient(90deg, hsla(180,100%,50%,.1) , hsla(240,100%,50%,.35)) no-repeat border-box, hsl(130,30%,75%);
+	font-family: $font-text;
+}
+
+h1,
+h2{
+	font-family: $font-title;
+	mix-blend-mode: multiply;
+	text-transform: uppercase;
+}
+h3,h4{
+	font-family: $font-text;
+}
+// Soundcloud
+$seek-h: 24px;
+
+$transition: .25s;
+
+$color-a: #000;
+$color-b: #FFF;
+
+$button-play: 'http://92.243.12.140/orchestrepelleas.com/v1/dyn_img/cms/d7d1bc29f0f8a74872295b219f4cf10d.svg';
+$button-pause: 'http://92.243.12.140/orchestrepelleas.com/v1/dyn_img/cms/98fddf3d95fa97e68b05c375c6d2e7ee.svg';
+
+.sc-player{
+	a{
+		color: #444;
+	}
+	margin-bottom: 120px;
+	position: relative;
+
+	.sc-artwork-list,
+	.sc-info-toggle,
+	.sc-trackslist,
+	.sc-time-indicators{
+		display: none;
+	}
+
+	.sc-waveform-container{
+		height: $seek-h;
+	}
+
+	.sc-time-span{
+		position: relative;
+		height: $seek-h;
+		background-color: $color-a;
+
+		.sc-played{
+			position: absolute;
+			width: 0%;
+			top: 0;
+			height: $seek-h;
+			background-color: $color-b;
+			display: block;
+			transition: $transition;
+		}
+
+		img{
+			width: 100%;
+			height: $seek-h;
+			visibility: hidden;
+			position: relative;
+
+		}
+
+		.sc-buffer{
+			height: 100%;
+			display: block;
+			position: absolute;
+			top: 0;
+			width: 0;
+			background-color: lighten($color-a,10%);
+			transition: $transition;
+		}
+	}
+
+	.sc-info{
+		mix-blend-mode: multiply;
+		position: absolute;
+		margin-top: 45%;
+		top: $seek-h + 10px;
+
+		h3{
+			text-transform: uppercase;
+		}
+		.sc-info-close{
+			display: none;
+		}
+		p{
+			display: none;
+		}
+	}
+	.sc-controls{
+		.sc-play,
+		.sc-pause{
+			color: transparent;
+			width: 45%;
+			padding-bottom: 45%;
+			background-size: contain;
+			background-repeat: no-repeat;
+			display: block;
+		}
+
+		.sc-play{
+			background-image: url($button-play);
+		}
+		.sc-pause{
+			background-image: url($button-pause);
+			display: none;
+		}
+	}
+	&.playing{
+		.sc-play{
+			display: none;
+		}
+		.sc-pause{
+			display: block !important;
+		}
+		.sc-played{
+			min-width: 1px;
+		}
+	}
+}
