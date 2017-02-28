@@ -5,6 +5,7 @@ var Upload = require('multer')({dest: 'temp/'})
 
 module.exports = function(app){
   app.post('/login', UserController.login);
+  app.get('/songs', SongController.allSongs);
   app.post('/register', function(req,res){
     UserController.register(req,res);
   });

@@ -12,7 +12,7 @@ app.factory("UserFactory", function ($http, $location) {
        "first": "test",
        "last": "account"
      }
-   };
+   };//hardcodded just for dev purposes, take this out before deployment
    var factory = {};
 
    factory.register = function(user, callback){
