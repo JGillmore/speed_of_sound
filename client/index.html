@@ -1,4 +1,4 @@
-<html ng-app='app'>
+<html style="position:relative; min-height:100%" ng-app='app'>
 <head>
   <meta charset='utf-8'>
   <title>Speed Of Sound</title>
@@ -20,4 +20,26 @@
   <div ng-view="">
   </div>
 </body>
+<footer style="position:absolute; bottom:0; left:200px; height:100px; width:75%;">
+  <sound-manager></sound-manager>
+
+  <p>
+    Currently Playing: {{ currentPlaying.title }} by {{ currentPlaying.artist }} ({{ currentPostion }} / {{ currentDuration }})
+  </p>
+
+  <div style="display:inline-block;" class="seekBase" seek-track>
+    <div class="seekLoad" ng-style="{width : ( progress + '%' ) }"></div>
+  </div><br>
+  <button play-music>Play</button>
+  -
+  <button pause-music>Pause</button>
+  -
+  <button stop-music>Stop</button>
+  -
+  <button repeat-music>Repeat ({{ repeat }})</button>
+  -
+  <button play-pause-toggle data-play="Play!" data-pause="Pause!">Play Toggle</button>
+
+  Is Playing: {{ isPlaying }}
+</footer>
 </html>
