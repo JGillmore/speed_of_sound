@@ -4,14 +4,16 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="static/style.css"/>
+    <link href="static/login_reg.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
-  <h2>Upload song with a Speed of Light!</h2><h3>
-    <form ng-app="app" ng-controller="UploadController" name="form">
-      Title: <input type=text ng-model=song.title><br><br>
-      <button ngf-select ng-model="file" name='file' ngf-pattern="'audio/*'" ngf-accept="'audio/*'">Choose File...</button>{{file.name}}<br>
-      <button type="submit" ng-click="upload()">submit</button>
+        <h2>Upload song with a Speed of Light!</h2>
+    <form  class='form-signin' ng-app="app" ng-controller="UploadController" name="form">
+      <label for="inputSongTitle" class="sr-only">Song Title</label>
+      <input class="form-control" placeholder="Song Title" type=text ng-model=song.title><br><br>
+      <button class="btn btn-lg btn-primary btn-block" ngf-select ng-model="file" name='file' ngf-pattern="'audio/*'" ngf-accept="'audio/*'">Choose File...</button>{{file.name}}<br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="upload()">Submit</button>
     </form>
 
      <div class="row">
