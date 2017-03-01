@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="static/login_reg.css" rel="stylesheet">
     <link rel="stylesheet" href="static/style.css"/>
+    <link rel="stylesheet" href="static/profile.css"/>
     </head>
     <body>
       <div class="row">
@@ -35,11 +36,28 @@
           </form>
           <ul class="nav navbar-nav navbar-right">
           <li><a href="#!/upload">Upload Song</a></li>
-          <li><a href="#!/user_profile">{{loggedIn.name.first}} Profile</a></li>
+          <li><a href="#!/profile">{{loggedIn.name.first}} Profile</a></li>
           <li><a href="#!/logOut">Logout</a></li>
           </ul>
        </div>
     </div>
  </nav>
+ <link href='' rel='stylesheet' type='text/css'>
+<div class="container">
+    <div class="fb-profile">
+        <img align="left" class="fb-image-lg" src="static/image/speed-of-sound-on.jpg" alt="Profile image example"/>
+        <img align="left" class="fb-image-profile thumbnail" src="img" alt="Profile image"/>
+        <div class="fb-profile-text">
+            <h1>{{loggedIn.name.first}}</h1>
+        </div>
+    </div>
+</div>
+<nav class="sidenav">
+  <br>
+  <h4><a href="#!/following">Following</a></h4><br>
+  <h4><a href="#!/followers">Followers</a></h4><br>
+  <h4><a href="#!/like">Like</a></h4><br>
+
+</nav>
 
     </body>
