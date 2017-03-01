@@ -11,6 +11,10 @@
 .glyphicon {
   font-size: 24px;
 }
+img.songIcons{
+  height:150px;
+  width:150px;
+}
 li {
 	cursor: pointer;
 }
