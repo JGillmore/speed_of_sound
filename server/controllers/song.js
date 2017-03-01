@@ -12,7 +12,9 @@ module.exports = {
     var song = new Song(req.body);
     song.url = "audio/"+song.id+req.files[0].originalname.substr(req.files[0].originalname.length-4)
     song.pic = "images/"+song.id+req.files[1].originalname.substr(req.files[1].originalname.length-4)
+    console.log("this is the song:",song);
     song.save(function(err){
+      console.log("save song error: ", err);
       res.json();
     })
     fs.rename(req.files[0].path, "client/"+song.url, function(){
