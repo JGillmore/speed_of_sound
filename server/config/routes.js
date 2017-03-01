@@ -7,6 +7,9 @@ module.exports = function(app){
   app.post('/login', UserController.login);
   app.get('/songs', SongController.allSongs);
   app.get('/test', UserController.testUser);
+  app.get('/profile',function(req,res){
+    ProfileController.showAll(req,res)
+  });
   app.post('/register', function(req,res){
     UserController.register(req,res);
   });
