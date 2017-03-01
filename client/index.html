@@ -14,13 +14,14 @@
   <script src="controllers/uploadSong.js"></script>
   <script src="controllers/index.js"></script>
   <script src="controllers/song.js"></script>
+  <script src="controllers/songBar.js"></script>
 
 </head>
 <body>
   <div ng-view="">
   </div>
 </body>
-<footer style="position:absolute; bottom:0; left:200px; height:100px; width:75%;">
+<footer ng-controller="SongBarController" style="position:absolute; bottom:0; left:200px; height:100px; width:75%;">
   <sound-manager></sound-manager>
 
   <p>
@@ -30,16 +31,15 @@
   <div style="display:inline-block;" class="seekBase" seek-track>
     <div class="seekLoad" ng-style="{width : ( progress + '%' ) }"></div>
   </div><br>
-  <button play-music>Play</button>
+  <span play-music class="glyphicon glyphicon-play"></span>
   -
-  <button pause-music>Pause</button>
+  <span pause-music class="glyphicon glyphicon-pause"></span>
   -
-  <button stop-music>Stop</button>
+  <span stop-music class="glyphicon glyphicon-stop"></span>
   -
-  <button repeat-music>Repeat ({{ repeat }})</button>
+  <span repeat-music class="glyphicon glyphicon-repeat"></span>
   -
-  <button play-pause-toggle data-play="Play!" data-pause="Pause!">Play Toggle</button>
-
-  Is Playing: {{ isPlaying }}
+  <span mute-music ng-if='!soundOn' ng-click="toggleSound()" class="glyphicon glyphicon-volume-off"></span>
+  <span mute-music ng-if='soundOn' ng-click="toggleSound()" class="glyphicon glyphicon-volume-up"></span>
 </footer>
 </html>
