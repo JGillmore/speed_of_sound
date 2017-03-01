@@ -6,6 +6,7 @@ var Upload = require('multer')({dest: 'temp/'})
 module.exports = function(app){
   app.post('/login', UserController.login);
   app.get('/songs', SongController.allSongs);
+  app.get('/test', UserController.testUser);
   app.post('/register', function(req,res){
     UserController.register(req,res);
   });
@@ -15,5 +16,5 @@ module.exports = function(app){
   app.get('/', function(req, res){
     SongController.showAll(req,res)
   });
-  app.post('/upload', Upload.single('file'), SongController.upload)
+  app.post('/upload', Upload.any(), SongController.upload)
 }

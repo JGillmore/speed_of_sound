@@ -45,9 +45,9 @@
     <div class="container">
         <h2>Upload a song with the Speed of Light!</h2>
     <form  class='form-signin' ng-app="app" ng-controller="UploadController" name="form">
-      <label for="inputSongTitle" class="sr-only">Song Title</label>
       <input class="form-control" placeholder="Song Title" type=text ng-model=song.title><br><br>
-      <button class="btn btn-lg btn-primary btn-block" ngf-select ng-model="file" name='file' ngf-pattern="'audio/*'" ngf-accept="'audio/*'">Choose File...</button>{{file.name}}<br>
+      <button class="btn btn-lg btn-primary btn-block" ngf-select ng-model="file" name='file' ngf-pattern="'audio/*'" ngf-accept="'audio/*'">Choose song...</button>{{file.name}}<br>
+      <button class="btn btn-lg btn-primary btn-block" ngf-select ng-model="imgFile" name='imgFile' ngf-pattern="'image/*'" ngf-accept="'image/*'">Choose image...</button>{{imgFile.name}}<br>
       <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="upload()">Submit</button>
     </form>
 </body>

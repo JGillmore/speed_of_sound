@@ -12,7 +12,7 @@ app.controller('UploadController', function (UserFactory, Upload, SongFactory, $
   $scope.upload = function(){
     Upload.upload({
       url: '/upload',
-      data: {file: $scope.file, artist:$scope.loggedIn.name.user, title: $scope.song.title},
+      data: {file: [$scope.file, $scope.imgFile], artist:$scope.loggedIn.name.user, title: $scope.song.title},
     }).then(function(){
       console.log("file uploaded");
     })
