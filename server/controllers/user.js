@@ -2,6 +2,11 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User')
 
 module.exports = {
+  testUser: function(req,res){
+    User.findOne({'name.user':'test'}, function(err, user){
+      res.json(user);
+    })
+  },
   login: function(req,res){
     var user = req.body;
     User.findOne({'name.user':req.body.name.user, 'password':req.body.password}, function(err, loggedIn){
