@@ -9,7 +9,7 @@ app.config(function ($routeProvider) {
         controller: "UploadController"
     }).when("/profile", {
         templateUrl: "partials/profile.html",
-        controller: "IndexController"
+        controller: "ProfileController"
     }).when("/register", {
         templateUrl: "partials/register.html",
         controller: "LoginController"

@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
-var User = mongoose.model('User')
+var User = mongoose.model('User');
+async = require('async');
+
 
 module.exports = {
   testUser: function(req,res){
@@ -19,7 +21,6 @@ module.exports = {
   },
   register: function(req,res){
     var user = new User(req.body)
-    console.log("\n\n\n\nHOLA1?\n\n\n\n\n");
     user.save(function(err){
       User.findOne(user, function(err, loggedIn){
         res.json(loggedIn);
@@ -27,8 +28,6 @@ module.exports = {
     })
   },
   checkUserName: function(req,res){
-    console.log("\n\n\n\nHOLA2?\n\n\n\n\n");
-
     User.findOne({'name.user':req.body.userName}, function(err, user){
       if (user){
         res.json({screenName: "taken"})
@@ -36,5 +35,33 @@ module.exports = {
         res.json({screenName: "available"})
       }
     })
+  },
+  getfollowing: function(req,res){
+    var thefollower = req.body.follower;
+    var obj = [];
+    User.findOne({_id: thefollower}),function(err, user){
+      if(err){
+        console.log(err);
+        res.json(err);
+      }else{
+        var following = user.following;
+        async.forEach(following, function(item, callback){
+          var user = item;
+          User.findOne({_id: user}, function(err, follower, callback){
+            var id = follower._id;
+            var pic = follower.pic;
+            obj.push({
+              id: id,
+              pic: pic
+            })
+          })
+          console.log(obj);
+          callback();
+      },function(err){
+        console.log(obj);
+        res.json(obj);
+      })
+    }
   }
-};
+}
+}

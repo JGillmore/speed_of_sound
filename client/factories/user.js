@@ -29,6 +29,7 @@ app.factory("UserFactory", function ($http, $location) {
      $location.path('/');
    }
 
+
    return factory;
 
 });

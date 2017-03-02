@@ -1,6 +1,7 @@
 app.factory("ProfileFactory", function ($http, $location) {
   var songs= {};
   var factory = {};
+  var users = {};
 
   factory.showAll = function(callback){
     $http.get('/songs').then(function(data){
@@ -11,6 +12,12 @@ app.factory("ProfileFactory", function ($http, $location) {
       callback(songs);
     })
   }
+  factory.showAll = function(callback){
+     $http.get('/users').then(function(data){
+       users = data.data;
+       callback(users);
+      })
+   }
   return factory;
 
 });

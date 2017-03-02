@@ -16,6 +16,7 @@ module.exports = function(app){
   app.post('/checkUserName', function(req,res){
     UserController.checkUserName(req,res);
   });
+  app.post('/getfollowing', UserController.getfollowing);
   app.get('/', function(req, res){
     SongController.showAll(req,res)
   });
