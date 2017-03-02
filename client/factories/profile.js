@@ -13,10 +13,15 @@ app.factory("ProfileFactory", function ($http, $location) {
     })
   }
   factory.showAll = function(callback){
-     $http.get('/users').then(function(data){
-       users = data.data;
-       callback(users);
+     $http.get('/user').then(function(data){
+       user = data.data;
+       callback(user);
       })
+   }
+   factory.uploadimg = function(user,callback){
+     $http.post('/uploadimg', user).then(function(data){
+       callback(data.data);
+     })
    }
   return factory;
 

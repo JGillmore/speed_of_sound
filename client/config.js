@@ -13,6 +13,9 @@ app.config(function ($routeProvider) {
     }).when("/register", {
         templateUrl: "partials/register.html",
         controller: "LoginController"
+    }).when("/uploadimg", {
+        templateUrl:"partials/profile.html",
+        controller: "ProfileController"
     }).otherwise({
         templateUrl: "partials/index.html",
         controller: "IndexController"

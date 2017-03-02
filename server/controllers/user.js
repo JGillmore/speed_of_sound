@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 async = require('async');
-
+var fs = require('fs');
 
 module.exports = {
   testUser: function(req,res){
@@ -63,5 +63,32 @@ module.exports = {
       })
     }
   }
-}
+},
+  upload: function(req,res){
+    var user = req.body.user;
+    console.log(user)
+    if (!user){
+      res.json();
+      return;
+    }
+    User.findOne({_id: user._id}, function(err,user){
+      if (!user){
+        res.json();
+        return;
+      }
+      if (err){
+        console.log(err.message);
+        res.json();
+        return;
+      }
+      user.pic = "images/"+user._id+req.file.originalname.substr(req.file.originalname.length-4)
+      user.save(function(err){
+        console.log(user);
+        res.json(user);
+        console.log(err);
+      })
+      fs.rename(req.file.path, "client/"+user.pic, function(){
+      })
+    })
+  }
 }

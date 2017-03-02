@@ -20,5 +20,6 @@ module.exports = function(app){
   app.get('/', function(req, res){
     SongController.showAll(req,res)
   });
-  app.post('/upload', Upload.any(), SongController.upload)
+  app.post('/upload', Upload.any(), SongController.upload);
+  app.post('/uploadimg',Upload.single('file'),UserController.upload)
 }

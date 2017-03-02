@@ -1,4 +1,4 @@
-app.controller('ProfileController', function (UserFactory, SongFactory, $scope){
+app.controller('ProfileController', function (UserFactory, SongFactory, Upload, $scope){
   $scope.user = {};
   function gotLoggedIn(loggedIn){
     $scope.loggedIn = loggedIn;
@@ -26,4 +26,20 @@ app.controller('ProfileController', function (UserFactory, SongFactory, $scope){
         }
       }
     }
+    $scope.upload = function(){
+      console.log($scope.userimgFile);
+      Upload.upload({
+        url: '/uploadimg',
+        data: {file: $scope.userimgFile, user:$scope.loggedIn},
+      }).then(function(user){
+        console.log("user is: ", user);
+        if (user){
+          $scope.loggedIn = user.data
+          console.log("user image uploaded");
+          console.log($scope.loggedIn)
+        } else {
+          console.log("user image upload error")
+        }
+      })
+      }
   })
