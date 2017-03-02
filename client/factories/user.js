@@ -1,8 +1,16 @@
 app.factory("UserFactory", function ($http, $location) {
-
    var loggedIn = {};
    var factory = {};
-
+   factory.getLoggedIn = function(callback){
+     callback(loggedIn);
+     console.log(loggedIn);
+   }
+   factory.login = function(loginInfo, callback){
+     $http.post('/login', loginInfo).then(function(data){
+       loggedIn = data.data;
+       callback(loggedIn);
+     })
+   }
    factory.register = function(user, callback){
      $http.post('/register', user).then(function(data){
        loggedIn = data.data;
@@ -12,16 +20,6 @@ app.factory("UserFactory", function ($http, $location) {
    factory.checkUserName = function(userName, callback){
      $http.post('/checkUserName', {userName:userName}).then(function(data){
        callback(data.data.screenName);
-     })
-   }
-   factory.getLoggedIn = function(callback){
-     callback(loggedIn);
-     console.log(loggedIn);
-   }
-   factory.login = function(loginInfo, callback){
-     $http.post('/login', loginInfo).then(function(data){
-       loggedIn = data.data;
-       callback(loggedIn);
      })
    }
    factory.logOut = function(){
