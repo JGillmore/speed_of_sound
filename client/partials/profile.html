@@ -46,17 +46,25 @@
 <div class="container">
     <div class="fb-profile">
         <img align="left" class="fb-image-lg" src="static/image/speed-of-sound-on.jpg" alt="Profile image example"/>
-        <img align="left" class="fb-image-profile thumbnail" src="img" alt="Profile image"/>
+        <img align="left" class="fb-image-profile thumbnail" ng-src="{{loggedIn.pic}}" alt="Profile image"/>
         <div class="fb-profile-text">
             <h1>{{loggedIn.name.first}}</h1>
         </div>
     </div>
 </div>
+<ul>
+  <li ng-repeat= 'user in users | orderBy: "-createdAt" '>{{user.first}} {{user.createdAt | date: "short"}}</li>
+  </ul>
+
 <nav class="sidenav">
   <br>
-  <h4><a href="#!/following">Following</a></h4><br>
-  <h4><a href="#!/followers">Followers</a></h4><br>
-  <h4><a href="#!/like">Like</a></h4><br>
+
+  <h4><div class="button" ng-controller="ProfileController" ngf-select="upload($file)" name='userimgFile' ng-model='userimgFile' ngf-pattern="'image/*'" ngf-accept="'image/*'">Upload on file select</div>{{userimgFile.name}}</h4>
+  <h4><a href="#!/following">Following</a></h4>{{user.following}}<br>
+  <h4><a href="#!/followers">Followers</a></h4>{{user.followers}}<br>
+  <h4><a href="#!/like"></a><a ng-click="likeClick()" ng-init="liked='Like'; likeCount=0">
+      {{liked}} {{likeCount}}
+  </a></h4><br>
 
 </nav>
 

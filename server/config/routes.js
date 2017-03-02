@@ -19,8 +19,10 @@ module.exports = function(app){
   app.post('/checkUserName', function(req,res){
     UserController.checkUserName(req,res);
   });
+  app.post('/getfollowing', UserController.getfollowing);
   app.get('/', function(req, res){
     SongController.showAll(req,res);
   });
-  app.post('/upload', Upload.any(), SongController.upload)
+  app.post('/upload', Upload.any(), SongController.upload);
+  app.post('/uploadimg',Upload.single('file'),UserController.upload)
 }

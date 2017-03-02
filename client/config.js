@@ -12,10 +12,13 @@ app.config(function ($routeProvider) {
         controller: "PlaylistController"
     }).when("/profile", {
         templateUrl: "partials/profile.html",
-        controller: "IndexController"
+        controller: "ProfileController"
     }).when("/register", {
         templateUrl: "partials/register.html",
         controller: "LoginController"
+    }).when("/uploadimg", {
+        templateUrl:"partials/profile.html",
+        controller: "ProfileController"
     }).otherwise({
         templateUrl: "partials/index.html",
         controller: "IndexController"
