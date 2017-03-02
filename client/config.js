@@ -7,6 +7,9 @@ app.config(function ($routeProvider) {
     }).when("/upload", {
         templateUrl: "partials/uploadSong.html",
         controller: "UploadController"
+    }).when("/myPlaylists", {
+        templateUrl: "partials/myPlaylists.html",
+        controller: "PlaylistController"
     }).when("/profile", {
         templateUrl: "partials/profile.html",
         controller: "IndexController"

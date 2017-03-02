@@ -8,9 +8,11 @@ var SongSchema = mongoose.Schema({
   comments: [CommentSchema],
   artist: String,
   genre: String,
-  url: String
+  url: String,
+  id: String
 },{
   timestamps:true
 });
 
+module.exports = SongSchema;
 mongoose.model("Song", SongSchema);

@@ -10,6 +10,7 @@ module.exports = {
   },
   upload: function(req,res){
     var song = new Song(req.body);
+    song.id = song._id;
     song.url = "audio/"+song.id+req.files[0].originalname.substr(req.files[0].originalname.length-4)
     song.pic = "images/"+song.id+req.files[1].originalname.substr(req.files[1].originalname.length-4)
     console.log("this is the song:",song);

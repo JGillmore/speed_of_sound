@@ -1,6 +1,6 @@
 app.factory("UserFactory", function ($http, $location) {
 
-   var loggedIn = {};//hardcodded just for dev purposes, take this out before deployment
+   var loggedIn = {};
    var factory = {};
 
    factory.register = function(user, callback){

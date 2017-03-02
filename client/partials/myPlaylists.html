@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="static/login_reg.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css"/>
+    <link rel="stylesheet" href="static/profile.css"/>
+    </head>
+    <body>
+      <div class="row">
+ <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"></div>
+ </div>
+ <nav class="navbar navbar-default">
+    <div class="container-fluid">
+       <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand"><i class="glyphicon glyphicon-music"></i></a>
+       </div>
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+             <li><a href="#!/home">Home</a></li>
+             <li><a href="#!/collection">Collection</a></li>
+          </ul>
+          <form class="navbar-form navbar-left">
+             <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search Songs" ng-model=filter_song>
+             </div>
+             <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+          <li><a href="#!/upload">Upload Song</a></li>
+          <li><a href="#!/profile">{{loggedIn.name.first}} Profile</a></li>
+          <li><a href="#!/logOut">Logout</a></li>
+          </ul>
+       </div>
+    </div>
+ </nav>
+ <button play-all="playlist.songs" ng-click="print(playlist.songs)">Play all</button>
+ <button play-all="playlist.songs" data-play="false">Add all</button>
+ <div ng-repeat="song in playlist.songs">
+   <img class='songIcons' add-song='song' ng-src ='{{song.pic}}'>
+ </div>
+</body>

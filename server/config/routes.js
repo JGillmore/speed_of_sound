@@ -1,10 +1,13 @@
 var UserController = require('../controllers/user');
 var SongController = require('../controllers/song');
+var PlaylistController = require('../controllers/playlist');
 var CommentController = require('../controllers/comment');
 var Upload = require('multer')({dest: 'temp/'})
 
 module.exports = function(app){
   app.post('/login', UserController.login);
+  app.post('/addToPlaylist', PlaylistController.addToPlaylist);
+  app.post('/getPlaylist', PlaylistController.getPlaylist);
   app.get('/songs', SongController.allSongs);
   app.get('/test', UserController.testUser);
   app.get('/profile',function(req,res){
@@ -17,7 +20,7 @@ module.exports = function(app){
     UserController.checkUserName(req,res);
   });
   app.get('/', function(req, res){
-    SongController.showAll(req,res)
+    SongController.showAll(req,res);
   });
   app.post('/upload', Upload.any(), SongController.upload)
 }
