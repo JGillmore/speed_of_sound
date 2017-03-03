@@ -41,10 +41,10 @@
       </nav>
       <div class="container">
       <h2>Welcome to Speed of Sound!</h2><h3>
-        <p>All users</p>
+        <p>Sound Users</p>
 
-<div class='container'ng-repeat='user in users | orderBy: "-createdAt" '>{{user.name.first}} - {{user.createdAt | date: "short"}}
-          <button class="btn followButton" ng-click="follow_submit(user._id)" rel='6'>Follow</button></div>
+<div class='container'ng-repeat='user in users | orderBy: "-createdAt" '>{{user.name.user}} - {{user.createdAt | date: "short"}}
+          <button ng-if=loggedIn.name.user class="btn followButton" ng-click="follow_submit(user._id)" rel='6'>Follow</button></div>
 
       <br/>
       <div class="row">
