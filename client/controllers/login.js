@@ -1,8 +1,11 @@
-app.controller('LoginController', function (UserFactory, $scope){
+app.controller('LoginController', function (UserFactory,$location, $scope){
   $scope.user = {};
   $scope.user.name = {};
   function gotLoggedIn(loggedIn){
     $scope.loggedIn = loggedIn;
+    if ($scope.loggedIn.name){
+      $location.path('/');
+    }
   }
   UserFactory.getLoggedIn(gotLoggedIn)
 

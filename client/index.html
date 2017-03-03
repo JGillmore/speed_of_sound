@@ -23,11 +23,11 @@
 
 
 </head>
-<body>
+<body style="margin-bottom:100px">
   <div ng-view="">
   </div>
 </body>
-<footer ng-controller="SongBarController" style="position:absolute; bottom:0; left:200px; height:100px; width:75%;">
+<footer ng-controller="SongBarController" style="width:100%;background-color:lightblue; position:fixed; bottom:0; left:200px; height:100px; width:75%;">
   <sound-manager></sound-manager>
 
   <p>
@@ -37,13 +37,18 @@
   <div style="display:inline-block;" class="seekBase" seek-track>
     <div class="seekLoad" ng-style="{width : ( progress + '%' ) }"></div>
   </div><br>
-  <span play-music class="glyphicon glyphicon-play"></span>
+  <span prev-track class="glyphicon glyphicon-step-backward"></span>
   -
   <span pause-music class="glyphicon glyphicon-pause"></span>
   -
+  <span play-music class="glyphicon glyphicon-play"></span>
+  -
+  <span next-track class="glyphicon glyphicon-step-forward"></span>
+  -
   <span stop-music class="glyphicon glyphicon-stop"></span>
   -
-  <span repeat-music class="glyphicon glyphicon-repeat"></span>
+  <span repeat-music ng-if="!repeatOn" ng-click=toggleRepeat() class="glyphicon glyphicon-repeat"></span>
+  <span repeat-music ng-if="repeatOn" ng-click=toggleRepeat() style="color:green" class="glyphicon glyphicon-repeat"></span>
   -
   <span mute-music ng-if='!soundOn' ng-click="toggleSound()" class="glyphicon glyphicon-volume-off"></span>
   <span mute-music ng-if='soundOn' ng-click="toggleSound()" class="glyphicon glyphicon-volume-up"></span>

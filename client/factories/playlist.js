@@ -15,7 +15,6 @@ app.factory("PlaylistFactory", function ($http, $location) {
   factory.getPlaylist = function(userName, callback){
     $http.post('/getPlaylist', {name:userName}).then(function(data){
       playlist = data.data;
-      console.log("factory playlist: ",playlist);
       callback(playlist);
     })
   }

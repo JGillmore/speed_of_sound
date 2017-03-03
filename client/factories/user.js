@@ -4,7 +4,6 @@ app.factory("UserFactory", function ($http, $location) {
    var users = {};
    factory.getLoggedIn = function(callback){
      callback(loggedIn);
-     console.log(loggedIn);
    }
    factory.login = function(loginInfo, callback){
      $http.post('/login', loginInfo).then(function(data){

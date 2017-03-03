@@ -1,7 +1,10 @@
-app.controller('UploadController', function (UserFactory, Upload, SongFactory, $scope){
+app.controller('UploadController', function ($location, UserFactory, Upload, SongFactory, $scope){
   $scope.song={};
   function gotLoggedIn(loggedIn){
     $scope.loggedIn = loggedIn;
+    if(!loggedIn.name){
+      $location.path('/');
+    }
   }
   UserFactory.getLoggedIn(gotLoggedIn)
 
@@ -14,7 +17,6 @@ app.controller('UploadController', function (UserFactory, Upload, SongFactory, $
       url: '/upload',
       data: {file: [$scope.file, $scope.imgFile], artist:$scope.loggedIn.name.user, title: $scope.song.title},
     }).then(function(){
-      console.log("file uploaded");
     })
     // $scope.song.artist = $scope.loggedIn.name.user;
     }
