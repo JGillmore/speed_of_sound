@@ -1,6 +1,7 @@
 app.factory("UserFactory", function ($http, $location) {
    var loggedIn = {};
    var factory = {};
+   var users = {};
    factory.getLoggedIn = function(callback){
      callback(loggedIn);
      console.log(loggedIn);
@@ -22,12 +23,21 @@ app.factory("UserFactory", function ($http, $location) {
        callback(data.data.screenName);
      })
    }
+   factory.showAll = function(callback){
+    $http.get('/users').then(function(data){
+      users = data.data;
+      callback(users);
+     })
+  }
    factory.logOut = function(){
      loggedIn = {};
      $location.path('/');
    }
-
-
+   factory.follow_submit = function(user){
+     $http.post('/follow_submit', user).then(function(data){
+       follower = data.data;
+     })
+}
    return factory;
 
 });

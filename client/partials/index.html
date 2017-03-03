@@ -4,6 +4,7 @@
       <meta charset="utf-8">
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
       <link rel="stylesheet" href="static/style.css"/>
+      <link rel="stylesheet" href="static/button.css"/>
    </head>
    <body>
       <nav class="navbar navbar-default">
@@ -40,6 +41,11 @@
       </nav>
       <div class="container">
       <h2>Welcome to Speed of Sound!</h2><h3>
+        <p>All users</p>
+
+<div class='container'ng-repeat='user in users | orderBy: "-createdAt" '>{{user.name.first}} - {{user.createdAt | date: "short"}}
+          <button class="btn followButton" ng-click="follow_submit(user._id)" rel='6'>Follow</button></div>
+
       <br/>
       <div class="row">
       <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"></div>
@@ -49,5 +55,6 @@
         <img class='songIcons' music-player add-song='song' ng-src ='{{song.pic}}'>
         <button ng-click="addToPlaylist(song)">Save To Playlist</button>
       </div>
+
    </body>
 </html>

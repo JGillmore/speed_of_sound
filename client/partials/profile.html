@@ -53,14 +53,11 @@
         </div>
     </div>
 </div>
-<ul>
-  <li ng-repeat= 'user in users | orderBy: "-createdAt" '>{{user.first}} {{user.createdAt | date: "short"}}</li>
-  </ul>
 
 <nav class="sidenav">
   <br>
 
-  <h4><div class="button" ng-controller="ProfileController" ngf-select="upload($file)" name='userimgFile' ng-model='userimgFile' ngf-pattern="'image/*'" ngf-accept="'image/*'">Upload on file select</div>{{userimgFile.name}}</h4>
+  <h4><div class="button" ng-controller="ProfileController" ngf-select="upload($file)" name='userimgFile' ng-model='userimgFile' ngf-pattern="'image/*'" ngf-accept="'image/*'">Upload Image</div>{{userimgFile.name}}</h4>
   <h4><a href="#!/following">Following</a></h4>{{user.following}}<br>
   <h4><a href="#!/followers">Followers</a></h4>{{user.followers}}<br>
   <h4><a href="#!/like"></a><a ng-click="likeClick()" ng-init="liked='Like'; likeCount=0">
