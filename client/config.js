@@ -22,6 +22,9 @@ app.config(function ($routeProvider) {
     }).when("/follow_submit", {
         templateUrl:"partials/index.html",
         controller: "FollowController"
+    }).when("/song", {
+        templateUrl:"partials/song.html",
+        controller: "SongController"
     }).otherwise({
         templateUrl: "partials/index.html",
         controller: "IndexController"

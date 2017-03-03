@@ -21,7 +21,10 @@ app.controller('IndexController', function (PlaylistFactory, UserFactory, SongFa
     var data = {song:song, user: $scope.loggedIn.name.user}
     PlaylistFactory.addToPlaylist(data);
   }
+  $scope.goToSong = function(song){
+    SongFactory.goToSong(song);
+  }
   $scope.print = function(songs){
   }
-  
+
 });

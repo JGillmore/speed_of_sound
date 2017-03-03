@@ -1,9 +1,10 @@
 app.factory("SongFactory", function ($http, $location) {
   var songs= {};
   var factory = {};
+  var song = {};
 
-  factory.uploadSong = function(song, callback){
-    $http.post('/uploadSong', song).then(function(data){
+  factory.uploadSong = function(newSong, callback){
+    $http.post('/uploadSong', newSong).then(function(data){
       callback(data);
     })
   }
@@ -13,6 +14,15 @@ app.factory("SongFactory", function ($http, $location) {
       callback(songs);
     })
   }
+  factory.goToSong = function(setSong){
+    song = setSong;
+    $location.path('/song')
+  }
+  factory.getSong = function(callback){
+    callback(song)
+  }
+  factory.addComment = function(song, user, comment){
+    $http.post("/commentSong", {song:song,user:user,comment:comment}).then($location.path('/'))
+  }
   return factory;
-
 });

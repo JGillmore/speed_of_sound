@@ -40,24 +40,27 @@
          </div>
       </nav>
       <div class="container">
-      <h2>Welcome to Speed of Sound!</h2><h3>
-        <p>All users</p>
-
-<div class='container'ng-repeat='user in users | orderBy: "-createdAt" '>{{user.name.first}} - {{user.createdAt | date: "short"}}
-          <button class="btn followButton" ng-click="follow_submit(user._id)" rel='6'>Follow</button></div>
+      <h2>{{song.title}}</h2>
+        <p>{{song.artist}}</p>
 
       <br/>
       <div class="row">
       <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"></div>
       </div>
       <div class="clear"></div>
-      <div ng-repeat='song in songs'>
+      <div>
         <img class='songIcons' music-player add-song='song' ng-src ='{{song.pic}}'>
         <div style="display: inline-block">
-          <a href ng-click="goToSong(song)"> {{song.title}}</a><br>
           <button ng-if=loggedIn.name.user ng-click="addToPlaylist(song)">Save To Playlist</button>
         </div>
+      </div><br><br>
+      <div>
+        <textarea ng-model=newComment></textarea>
+        <button ng-click=addComment()>Add Comment</button>
       </div>
-
+      <div ng-repeat="comment in song.comments | orderBy: '-createdAt'">
+        {{comment.user[0].name.user}} - {{comment.createdAt | date: "short"}}
+        {{comment.comment}}
+      </div>
    </body>
 </html>

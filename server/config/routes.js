@@ -8,6 +8,7 @@ module.exports = function(app){
   app.post('/login', UserController.login);
   app.post('/addToPlaylist', PlaylistController.addToPlaylist);
   app.post('/getPlaylist', PlaylistController.getPlaylist);
+  app.post('/commentSong', SongController.addComment);
   app.get('/songs', SongController.allSongs);
   app.get('/test', UserController.testUser);
   app.get('/profile',function(req,res){

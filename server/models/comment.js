@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var UserSchema = require('./user.js');
 
 var CommentSchema = mongoose.Schema({
-  comments: [this],
+  comment:String,
   user: [UserSchema]
 },{
   timestamps:true
