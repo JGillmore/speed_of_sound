@@ -24,5 +24,8 @@ module.exports = function(app){
     SongController.showAll(req,res);
   });
   app.post('/upload', Upload.any(), SongController.upload);
-  app.post('/uploadimg',Upload.single('file'),UserController.upload)
+  app.post('/uploadimg',Upload.single('file'),UserController.upload);
+  app.get('/users', function(req,res){
+    UserController.showAll(req,res);
+  });
 }

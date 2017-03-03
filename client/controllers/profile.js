@@ -12,6 +12,9 @@ app.controller('ProfileController', function (UserFactory, SongFactory, Upload, 
     UserFactory.logOut();
     $scope.loggedIn = {};
   }
+  UserFactory.showAll(function(users){
+    $scope.users = users;
+  })
   SongFactory.showAll(function(songs){
     $scope.songs = songs;
   })

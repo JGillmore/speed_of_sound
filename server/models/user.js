@@ -9,8 +9,8 @@ var UserSchema = mongoose.Schema({
   email: {type: String, required:true},
   password: {type: String, required:true},
   pic: String,
-  followers: [String],
-  following: [String]
+  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User"}]
 },{
   timestamps:true
 });

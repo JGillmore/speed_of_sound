@@ -19,6 +19,9 @@ app.config(function ($routeProvider) {
     }).when("/uploadimg", {
         templateUrl:"partials/profile.html",
         controller: "ProfileController"
+    }).when("/follow_submit", {
+        templateUrl:"partials/index.html",
+        controller: "FollowController"
     }).otherwise({
         templateUrl: "partials/index.html",
         controller: "IndexController"

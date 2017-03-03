@@ -11,6 +11,9 @@ app.controller('IndexController', function (PlaylistFactory, UserFactory, SongFa
     $scope.loggedIn = {};
 
   }
+  UserFactory.showAll(function(users){
+    $scope.users = users;
+  })
   SongFactory.showAll(function(songs){
     $scope.songs = songs;
   })
@@ -20,4 +23,5 @@ app.controller('IndexController', function (PlaylistFactory, UserFactory, SongFa
   }
   $scope.print = function(songs){
   }
+  
 });

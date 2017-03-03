@@ -9,6 +9,15 @@ module.exports = {
       res.json(user);
     })
   },
+  showAll: function (request, response) {
+        User.find({}, function(err, users){
+          if (err){
+            response.json(err);
+          }else{
+            response.json(users);
+          }
+        })
+    },
   login: function(req,res){
     var user = req.body;
     User.findOne({'name.user':req.body.name.user, 'password':req.body.password}, function(err, loggedIn){
