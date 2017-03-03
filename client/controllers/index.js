@@ -9,6 +9,7 @@ app.controller('IndexController', function (PlaylistFactory, UserFactory, SongFa
   $scope.logOut = function(){
     UserFactory.logOut();
     $scope.loggedIn = {};
+
   }
   SongFactory.showAll(function(songs){
     $scope.songs = songs;
