@@ -2,9 +2,11 @@ app.controller('PlaylistController', function (UserFactory, PlaylistFactory, Son
   $scope.song={};
   function gotLoggedIn(loggedIn){
     $scope.loggedIn = loggedIn;
+    if(!loggedIn.name){
+      $location.path('/');
+    }
   }
   function gotPlaylist(playlist){
-    console.log("controll playlist: ",playlist);
     $scope.playlist = playlist;
   }
   UserFactory.getLoggedIn(function(loggedIn){
@@ -23,6 +25,5 @@ app.controller('PlaylistController', function (UserFactory, PlaylistFactory, Son
     PlaylistFactory.deleteFromPlaylist(song, gotPlaylists);
   }
   $scope.print = function(songs){
-    console.log(songs);
   }
 });

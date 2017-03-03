@@ -2,6 +2,9 @@ app.controller('ProfileController', function (UserFactory, SongFactory, Upload, 
   $scope.user = {};
   function gotLoggedIn(loggedIn){
     $scope.loggedIn = loggedIn;
+    if(!loggedIn.name){
+      $location.path('/');
+    }
   }
   UserFactory.getLoggedIn(gotLoggedIn)
 
